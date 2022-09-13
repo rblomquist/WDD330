@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+  <title>Group Loop</title>
+  <script>
+    function checkNumber() {
+        let someNumbers = [25, 11, -2, 14, "What?? This isn't a number!", -1, -10];
+        for (let i = 0; i < 7; i++) {
+            let number = someNumbers[i];
+            let aNumber = parseInt(number);
+            if (number != "" && !isNaN(aNumber)){
+                let remainder = Math.abs(number % 2); 
+                if (aNumber != 0 && remainder == 0) {
+                    document.querySelector("#result_display").innerHTML += `<p>${number} is even</p>`;
+                }
+                else if (aNumber != 0 && remainder == 1) {
+                    document.querySelector("#result_display").innerHTML += `<p>${number} is odd`; 
+                }
+                else {
+                    document.querySelector("#result_display").innerHTML += "<p>0 is neither even not odd</p>";
+                }
+            }
+            else {
+                document.querySelector("#result_display").innerHTML += "<p>Please enter a number.</p>";
+            }
+        }
+    }
+
+  </script>
+
+  <style>
+    body {
+        background-color: lightgray;
+    }
+
+    input {
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0px 0px 5px #666666 inset;
+        height: 25px;
+        width: 200px;
+        text-indent: 5px;
+    }
+  </style>
+</head>
+
+<body>
+	<h1>Even or Odd</h1>
+    <button onclick="checkNumber()">Check It!</button>
+    <section id="result_display"></section>
+</body>
+</html>

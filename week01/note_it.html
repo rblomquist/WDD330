@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+  <title>Note It</title>
+  <script>
+
+    function saveNote() {
+        let currentDateandTime = new Date();
+        let aNoteDescription = document.querySelector("#description_input");
+        let aNoteText = document.querySelector("#note_editor");
+        let aCompleteNote = `${currentDateandTime.toLocaleString()} -- ${aNoteDescription.value}`;
+        aCompleteNote += `<p>${aNoteText.value}</p>`;
+
+        let storedNotesString = localStorage.getItem("all_notes");
+        let allNotes = JSON.parse(storedNotesString);
+        if(allNotes == null) {
+            allNotes = [];
+        };
+        allNotes.push(aCompleteNote);
+        let allNotesString = JSON.stringify(allNotes);
+        localStorage.setItem("all_notes", allNotesString);
+        showAllNotes();
+        aNoteDescription.value = null;
+        aNoteText.value = null;
+    };
+    function showAllNotes(){
+        let storedNotesString = localStorage.getItem("all_notes");
+        let allNotes = JSON.parse(storedNotesString);
+        if(allNotes != null) {
+            let noteDisplayer = document.querySelector("#all_notes_display");
+            noteDisplayer.innerHTML = null;
+            let numberOfNotes = allNotes.length;
+            for (let i = 0; i < numberOfNotes; i++) {
+                let aNote = allNotes[i];
+                noteDisplayer.innerHTML += `<hr><p>${aNote}</p>`;
+            };
+        };
+    };
+  </script>
+  <style>
+    body {
+        background-color: lightgray;
+    }
+    input {
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0px 0px 5 px #666666 inset;
+        height: 25px;
+        width: 200px;
+        text-indent: 5px;
+    }
+    input:focus {
+        outline: none;
+    }
+    #note_entry_area {
+        width: 500px;
+        padding-left: 5px;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0px 0px 5 px #666666 inset;
+        text-indent: 5px;
+    }
+    textarea {
+        margin-top: 10px;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0px 0px 5px #666666 inset;
+        width: 90%;
+        height: 150px;
+        text-indent: 5px;
+        resize: none;
+        overflow: scroll;
+    }
+  </style>
+</head>
+
+<body onload="showAllNotes()">
+    <section id="note_entry_area">
+        <h1>Note It!</h1>
+        Description: <input id="description_input"></input>
+        <textarea id="note_editor" placeholder="Note it down. Don't forget"></textarea>
+        <button onclick="saveNote()">Save</button>
+    </section>
+    <section id="all_notes_display"></section>
+</body>
+</html>
