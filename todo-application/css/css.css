@@ -1,0 +1,31 @@
+* {
+    padding: 10px;
+}
+
+.active {
+    border: 1px solid black;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flexEven {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.blackBorder {
+    border: 1px solid black;
+}
+
+.completed {
+    background-color: gray;
+}
+
+.completed p {
+    text-decoration: line-through;
+}
