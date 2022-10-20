@@ -10,12 +10,12 @@ window.addEventListener('load', () => {
         storage.refreshList()
         // extracts data from list
         for (let i = 0; i < storage.toDoList.length; i++){
-        let newTask = storage.toDoList[i];
-        // gets the name of the task
-        let taskName = newTask["task"]
-        // calls function to display the task name
-        // initial runs first load checks from function
-        addTask(taskName, "initial");
+            let newTask = storage.toDoList[i];
+            // gets the name of the task
+            let taskName = newTask["task"]
+            // calls function to display the task name
+            // initial runs first load checks from function
+            addTask(taskName, "initial");
     }})
     
 // adds event listener to the plus button to add new event and update task #

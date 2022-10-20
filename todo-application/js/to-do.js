@@ -79,7 +79,6 @@ function addCompleteTask(target, div, task, count) {
             if (e.currentTarget.checked) {
                 div.classList.add("completed")
                 storage.setItem(task, true);
-                count--;
                 storage.refreshList()
                 count = storage.filterItems(false).length
 
@@ -90,7 +89,6 @@ function addCompleteTask(target, div, task, count) {
             else {
                 div.classList.remove("completed")
                 storage.setItem(task, false);
-                count++;
                 storage.refreshList()
                 count = storage.filterItems(false).length
 
@@ -110,13 +108,7 @@ function removeTask(button, div, task, count) {
     
         count = storage.filterItems(false).length
 
-        // if (e.currentTarget.parentElement.checked) {
-        //     count = count
-        // }
-        // else {
-        //     count--;
-        // }
-            counter.textContent = `${count} tasks remaining`;
+        counter.textContent = `${count} tasks remaining`;
 
     })
 };
