@@ -6,7 +6,6 @@
 import TheLocaleStorage from "./localStorage.js";
 
 const storage = new TheLocaleStorage();
-// let count = storage.filterItems(false).length
 const counter = document.querySelector("#remaining");
 
 
@@ -21,8 +20,8 @@ function addTask(task, first="notInitial") {
         // subsequent times will add item to local storage and adjust #of tasks remaining
         task = document.querySelector("#newTask").value
         storage.setItem(task, false);
-        // document.querySelector("#remaining").textContent = `${count} tasks remaining`
     }
+
     let count = storage.filterItems(false).length
     
     // creates new element to store new task
@@ -41,9 +40,9 @@ function addTask(task, first="notInitial") {
         div.classList.add("completed")
 
         div.innerHTML = 
-        `<label>Complete: <input type="checkbox" class="checkbox" checked></label>
-        <p>${task}</p>
-        <button class="remove">X</button>`;
+            `<label>Complete: <input type="checkbox" class="checkbox" checked></label>
+            <p>${task}</p>
+            <button class="remove">X</button>`;
     }
     else {
         // if not completed leaves box unchecked
@@ -51,10 +50,9 @@ function addTask(task, first="notInitial") {
             `<label>Complete: <input type="checkbox" class="checkbox"></label>
             <p>${task}</p>
             <button class="remove">X</button>`;
-            // count++;
-            counter.textContent = `${count} tasks remaining`
-
     }
+    counter.textContent = `${count} tasks remaining`
+
         
     taskList.append(div);
 
@@ -100,17 +98,17 @@ function addCompleteTask(target, div, task, count) {
 // function when clicking the X button
 function removeTask(button, div, task, count) {
     button.addEventListener("click", 
-    // removes item from the display and the local storage. then updates the remaining #
-    function removeTask(e){
-        div.remove();
-        storage.removeItems(task);
-        storage.refreshList();
-    
-        count = storage.filterItems(false).length
+        // removes item from the display and the local storage. then updates the remaining #
+        function removeTask(e){
+            div.remove();
+            storage.removeItems(task);
+            storage.refreshList();
+        
+            count = storage.filterItems(false).length
 
-        counter.textContent = `${count} tasks remaining`;
+            counter.textContent = `${count} tasks remaining`;
 
-    })
+        })
 };
 
 // function to change the task view
