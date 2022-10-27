@@ -7,5 +7,4 @@ const comments = new Comments("comments", "hikes");
 window.addEventListener('load', () => {
   myHikes.showHikeList();
   comments.showAllComments();
-  // comments.showOneComment("Test Hike")
 });

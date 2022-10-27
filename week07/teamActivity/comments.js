@@ -1,23 +1,3 @@
-// const commentList = [        
-//     {
-//         "name": "Bechler Falls",
-//         "date": new Date(),
-//         "content": "Test Comment"
-//     },
-
-//     {
-//         "name": "Teton Canyon",
-//         "date": new Date(),
-//         "content": "Test Comment 2"
-//     },
-
-//     {
-//         "name": "2",
-//         "date": new Date(),
-//         "content": "Test Comment 3"
-//     }
-
-// ];
 
 export default class Comments {
     constructor(parentId, type) {
@@ -66,7 +46,6 @@ export default class Comments {
     formEvent(hike) {
 
         document.querySelector("#commentButton").addEventListener ("touchend", () => {
-            event.preventDefault()
             const content = document.querySelector("#content").value
             this.addComment(hike, content);
             this.showOneComment(hike);
@@ -108,6 +87,3 @@ function toLS(key, data) {
 function fromLS(key) {
     return JSON.parse(window.localStorage.getItem(key));
 }
-// const testing = new Comments("hikes");
-
-// testing.showComments();
