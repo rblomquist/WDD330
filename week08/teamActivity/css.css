@@ -1,0 +1,36 @@
+* {
+    padding: 5px;
+}
+h1 {
+    text-align: center;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+}
+
+.flex {
+    display: flex; 
+    justify-content: space-between;
+}
+
+.card {
+    border: 1px solid black;
+    text-align: center;
+    box-shadow: 3px 5px gray;
+    background-color: lightblue;
+}
+
+.active {
+    background-color: lightblue;
+}
+
+.single {
+    text-align: center;
+}
+
+.backButton {
+    margin: auto;
+}
