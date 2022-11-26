@@ -1,0 +1,27 @@
+* {
+    padding: 5px;
+}
+h1 {
+    text-align: center;
+}
+#mainTeam {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    list-style: none;
+}
+
+.blackBorder {
+    border: 1px black solid;
+}
+
+#mainNav {
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+
+.active {
+    scale: 102%;
+    border: 2px black solid;
+}
