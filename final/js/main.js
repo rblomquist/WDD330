@@ -1,26 +1,51 @@
 import Views from "./views.js";
 
-const render = new Views;
-const pokemon = {}
-// window.onload = render.initialView;
-// window.onload = render.formView;
+// export const pokemon = {}
+// await getOnePokemon();
+// getOnePokemon();
 
-// let url = "https://pokeapi.co/api/v2/pokemon?limit=151";
+
+const render = new Views;
+window.onload = getAllPokemon(render.homeView);
+// window.onload = getAllPokemon(render.formView);
+
+// let url = "https://pokeapi.co/api/v2/pokemon/";
 // let url1 = "https://pokeapi.co/api/v2/pokemon/151"
 
 
 
-// let url = "https://pokeapi.co/api/v2/pokemon";
+// let url = "https://pokeapi.co/api/v2/pokemon?limit=151";
    
-async function getAllPokemon(url) {
-    let response = await fetch(url);
+export async function getAllPokemon(callback) {
+    let response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=151");
     
     if (response.ok) {
         let data = await response.json();
-        console.log(data)
-    }
+        // console.log(data.results)
+        
+        if (callback) {
+        callback()}
+    }  
 }
-// getAllPokemon(url);
+
+// async function getAllPokemon() {
+//     return await fetch(url,
+//         {
+//             method: "GET",
+//             headers: {"Accept": "application/json", "Content-Type": "application/json",}
+//         }  )
+//         .then((response) => response.json())
+//     .then((responseData) => {
+//     //   console.log(responseData);
+//       return responseData;
+//     })
+//     .catch(error => console.warn(error));
+// }
+
+// let results = getAllPokemon(url).then(response => {results = response})
+// let results = getAllPokemon(url)
+// console.log(results)
+
 
 async function getOnePokemon() {
     for (let i=1; i < 152; i++){
@@ -33,8 +58,9 @@ async function getOnePokemon() {
             pokemon[name] = data;
             // console.log(data.name)
     }}
+    // const storePokemon = JSON.stringify(pokemon);
+    // localStorage.setItem("pokemon", storePokemon)
 }
 
-await getOnePokemon()
-console.log(pokemon)
-console.log(pokemon.length)
+// console.log(pokemon)
+// console.log(pokemon.length)
