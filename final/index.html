@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/large.css">
+
 </head>
 <body>
     <div id="homeView">
@@ -18,10 +20,10 @@
             <li class="blackBorder"><h2></h2><img><p></p></li>
             <li class="blackBorder"><h2></h2><img><p></p></li>
         </ul>
-        <div id="mainNav">
+        <div class="mainNav">
             <button id="formBtn">Update</button>
             <button>Interact</button>
-            <button><a href="pokemonList.html">Browse</a></button>
+            <button onclick="window.location.href='pokemonList.html'">Browse</button>
         </div>
     </div>
 
@@ -31,8 +33,10 @@
             <ul id="updateForm">
             </ul>
             
-            <button id="submitBtn">Submit</button>
-            <button id="backBtn">Back</button>
+            <div class="mainNav">
+                <button id="submitBtn">Submit</button>
+                <button id="backBtn">Back</button>
+            </div>
         </form>
     </div>
 

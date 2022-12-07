@@ -41,16 +41,31 @@ export default class Views {
     }
 
     formView() {
+        document.querySelector("#homeView").classList.add("hidden");
+        document.querySelector("#formView").classList.remove("hidden")
         async function getAllPokemon() {
             let response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=151");
             
             if (response.ok) {
                 let data = await response.json();
 
-                let list = JSON.parse(localStorage.getItem("pokemon"));
-                
-                for (const [key,value] of Object.entries(list)) {
-                    buildForm(value.name)
+                if(localStorage.getItem("pokemon") == null) {
+
+                    let name = "Select Pokemon";
+                    buildForm(name)
+                    buildForm(name)
+                    buildForm(name)
+                    buildForm(name)
+                    buildForm(name)
+                    buildForm(name)
+                }
+                else {
+                    let list = JSON.parse(localStorage.getItem("pokemon"));
+                    
+                    for (const [key,value] of Object.entries(list)) {
+                        let name = value.name
+                        buildForm(name)
+                    }
                 }
                 submit()
 
@@ -58,7 +73,7 @@ export default class Views {
 
                     let li = document.createElement("li");
                     let form = document.createElement("form");
-                    form.classList.add("blackBorder");
+                    // form.classList.add("blackBorder");
                     
                     let select = document.createElement("select");
                     select.classList.add("selectPokemon")

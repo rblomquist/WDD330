@@ -1,7 +1,13 @@
 import Views from "./views.js";
 
 const render = new Views;
-window.onload = render.homeView()
+if(localStorage.getItem("pokemon") === null) {
+    window.onload = render.formView()
+}
+else {
+    window.onload = render.homeView()
+}
+
 
 
 document.querySelector("#formBtn").addEventListener("click", () => {

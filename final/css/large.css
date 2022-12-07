@@ -1,0 +1,23 @@
+@media (min-width: 38em) {
+   
+    * {
+        width: 85%;
+        max-width: 1100px;
+    }
+
+    #mainTeam {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    list-style: none;
+    }
+
+    #updateForm {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 10px;
+        list-style: none;
+    }
+
+
+}

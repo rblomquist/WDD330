@@ -21,6 +21,14 @@ async function getAllPokemon(url) {
 
 function drawCards(data, parent) {
     parent.innerHTML = "";
+    parent.innerHTML += 
+    `<form id="searchBox">
+        <label for="search">Search: </label>
+        <input id="search" type="text" pattern="[A-Za-z]+" required>
+        <button id="searchBtn">&#x1F50D</button>
+    </form>`
+
+    document.querySelector("#searchBox").addEventListener ("submit", search)
     data.results.forEach( (result) => {
         const div = document.createElement("div");
         div.classList.add("card");
@@ -32,6 +40,30 @@ function drawCards(data, parent) {
         parent.appendChild(div);
         }
     );
+}
+
+function search(e) {
+    e.preventDefault()
+    let input = document.querySelector("#search").value;
+    input = input.toLowerCase();
+    getPokemon()
+    
+    async function getPokemon() {
+        let response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=151");
+    
+        if (response.ok) {
+            let data = await response.json();
+            console.log(data)
+            data.results.forEach(pokemon => {
+                if (pokemon.name == input) {
+                    let singleUrl = pokemon.url
+                    console.log(singleUrl)
+                    expand(singleUrl)
+                }
+                
+            })
+        }
+    }
 }
 
 function buildMenu() {
@@ -49,7 +81,7 @@ function buildMenu() {
     <button id="seven">7</button>
     <button id="eight">8</button>
     <button id="next">Next</button>
-    <button><a href="index.html">Home</a></button>`
+    <button onclick="window.location.href='index.html'">Browse</button>`
 
     document.querySelector("#previous").addEventListener("click", () => changePage(1));
     document.querySelector("#one").addEventListener("click", () => changePage(2));
@@ -194,7 +226,7 @@ function drawSingleCard(data, parent) {
     
     div.innerHTML =
         `<h2>${name}</h2>
-        <img src="${img}" height=200>`
+        <img src="${img}" alt="${name}" height=200>`
 
     div2.innerHTML = 
         `<h3>type</h3>`

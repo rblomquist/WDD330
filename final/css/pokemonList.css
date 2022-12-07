@@ -4,16 +4,25 @@
 h1 {
     text-align: center;
 }
+a {
+    text-decoration: none;
+}
+a:visited {
+    color: black;
+}
 
-.grid{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
+
+#searchBox {
+    grid-column: 1 / span 3;
+    display: flex;
+    justify-content: center;
 }
 
 .flex {
     display: flex; 
     justify-content: space-between;
+    flex-wrap: wrap;
+    font-size: smaller;
 }
 
 .card {
@@ -33,4 +42,13 @@ h1 {
 
 .backButton {
     margin: auto;
+}
+
+@media (min-width: 38em) {
+
+    .grid{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 10px;
+    }
 }
