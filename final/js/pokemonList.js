@@ -81,7 +81,7 @@ function buildMenu() {
     <button id="seven">7</button>
     <button id="eight">8</button>
     <button id="next">Next</button>
-    <button onclick="window.location.href='index.html'">Browse</button>`
+    <button onclick="window.location.href='index.html'">Home</button>`
 
     document.querySelector("#previous").addEventListener("click", () => changePage(1));
     document.querySelector("#one").addEventListener("click", () => changePage(2));
