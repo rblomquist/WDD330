@@ -1,0 +1,56 @@
+.play {
+    animation: play 2.5s
+}
+
+@keyframes play {
+    33% {
+        transform: rotate(-30deg);
+    }
+    66% {
+        transform: rotate(30deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.feed {
+    animation: feed 1s
+}
+
+@keyframes feed {
+    25% {
+        transform: translateY(-50px);
+    }
+    50% {
+        transform: translateY(0);
+    }
+    75% {
+        transform: translateY(-50px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.pet {
+    animation: pet 1.5s
+}
+
+@keyframes pet {
+    20% {
+        transform: translateX(-50px);
+    }
+    40% {
+        transform: translateX(50px);
+    }
+    60% {
+        transform: translateX(-50px);
+    }
+    80% {
+        transform: translateX(50px);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}

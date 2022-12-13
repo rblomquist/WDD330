@@ -8,6 +8,7 @@ export default class Views {
         const children = Array.from(team.children)
         let index = 1
 
+
         children.forEach( child => {
 
             child.querySelector("h2").innerHTML = this.jsonPokemon[index].name
@@ -30,14 +31,25 @@ export default class Views {
                 })
             }
         }
+
+        let activeCard = document.querySelector(".active")
+        let activePokemon = {"name":activeCard.querySelector("h2").textContent}
+        let string = JSON.stringify(activePokemon)
+        localStorage.setItem("active", string)
         
         children.forEach( child => {child.addEventListener("click", active)})
         
         function active(e) {
             children.forEach( child => {if(child.classList.contains("active")) {
                 child.classList.remove("active")}
-            e.currentTarget.classList.add("active")})}
+            e.currentTarget.classList.add("active")})
+            
+            let activeCard = document.querySelector(".active")
+            let activePokemon = {"name":activeCard.querySelector("h2").textContent}
+            let string = JSON.stringify(activePokemon)
+            localStorage.setItem("active", string)
 
+        }
     }
 
     formView() {
